@@ -3,13 +3,14 @@
 
 <head>
     @include('partials.head')
+    <livewire:styles />
+
 </head>
 
 <body class="antialiased">
     @include('partials.nav')
     {{ $slot }}
-    @livewireScripts
-    @livewireStyles
+    <livewire:scripts />
     @include('partials.footer')
 </body>
 
