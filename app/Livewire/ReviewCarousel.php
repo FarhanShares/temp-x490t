@@ -75,6 +75,7 @@ class ReviewCarousel extends Component
         return view('livewire.review-carousel', [
             'currentReview' => $this->reviews[$this->currentIndex],
             'initials' => $this->getInitials($this->reviews[$this->currentIndex]['authorName']),
+            'isFading' => $this->isFading,
         ]);
     }
 
