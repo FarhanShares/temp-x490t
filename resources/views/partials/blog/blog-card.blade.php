@@ -45,7 +45,8 @@
                 <div class="mt-4 flex items-center space-x-2">
                     <div class="flex items-center -space-x-2">
                         <img alt="{{ $content->author->name }}" loading="lazy" width="32" height="32"
-                            decoding="async" class="object-cover rounded-full transition-all group-hover:brightness-90"
+                            decoding="async"
+                            class="object-cover rounded-full overflow-hidden size-8 transition-all group-hover:brightness-90"
                             src="{{ $content->author->profile_picture ? asset('storage/' . $content->author->profile_picture) : '/author/placeholder.jpg' }}">
                     </div>
                     <time datetime="{{ $content->created_at }}" class="text-sm text-neutral-500">

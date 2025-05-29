@@ -97,7 +97,7 @@
                         <a class="group flex items-center space-x-3" href="/authors/{{ $content->author->id }}">
                             <img alt="{{ $content->author->name }}" loading="lazy" width="36" height="36"
                                 decoding="async"
-                                class="blur-0 object-cover rounded-full transition-all group-hover:brightness-90"
+                                class="blur-0 object-cover rounded-full transition-all  overflow-hidden size-[36px] group-hover:brightness-90"
                                 src="{{ $content->author->profile_picture ? asset('storage/' . $content->author->profile_picture) : '/author/placeholder.jpg' }}">
                             <div class="flex flex-col">
                                 <p class="text-sm font-medium whitespace-nowrap text-neutral-700">
