@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Content;
+use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -12,8 +15,21 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::get('/blog', function () {
-    return view('blog');
-})->name('blog');
+    $query = Content::where('status', 'published')->latest();
+    if ($tagSlug = request()->query('tag')) {
+        $query->whereHas('primaryTag', function ($q) use ($tagSlug) {
+            $q->where('slug', $tagSlug);
+        });
+    }
+    $contents = $query->get();
+    $tags = Tag::all();
+    return view('blog', compact('contents', 'tags'));
+})->name('blog.index');
+
+Route::get('/blog/{slug}', function ($slug) {
+    $content = Content::where('slug', $slug)->where('status', 'published')->firstOrFail();
+    return view('show-blog', compact('content'));
+})->name('blog.show');
 
 Route::get('/help', function () {
     return view('help');

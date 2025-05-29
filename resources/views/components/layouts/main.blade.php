@@ -4,7 +4,6 @@
 <head>
     @include('partials.head')
     <livewire:styles />
-
 </head>
 
 <body class="antialiased">
